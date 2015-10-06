@@ -1,0 +1,37 @@
+{
+  "name": "gulp-json-bundler",
+  "scripts": {
+    "test": "mocha"
+  },
+  "version": "0.0.1",
+  "description": "A simple gulp plugin to bundle json files together.",
+  "keywords": [
+    "gulp",
+    "gulp-plugin",
+    "internationalization",
+    "i18n",
+    "locales",
+    "json"
+  ],
+  "homepage": "https://github.com/wunderflats/gulp-json-bundler",
+  "bugs": "https://github.com/wunderflats/gulp-json-bundler/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wunderflats/gulp-json-bundler.git"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "chai-things": "^0.2.0",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "deep-assign": "^1.0.0",
+    "object-path": "^0.9.2",
+    "through2": "^2.0.0",
+    "vinyl": "^1.0.0"
+  }
+}
