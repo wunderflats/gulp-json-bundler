@@ -15,12 +15,12 @@ module.exports = function jsonBundler(opts) {
   return through.obj(gatherJson, bundleJson);
 
   function gatherJson(chunc, enc, cb) {
-    var localePath = path.relative(chunc.base, path.dirname(chunc.path)).replace(omit, '');
+    var localePath = path.relative(chunc.base, path.dirname(chunc.path)).replace(new RegExp(omit, 'g'), '');
     // remove trailing slash
     localePath = localePath.replace(/\/$/, '');
     var fileName = path.basename(chunc.path);
     var content = {};
-    objectPath.set(content, localePath.replace('/', '.'), JSON.parse(chunc.contents));
+    objectPath.set(content, localePath.replace(/\//g, '.'), JSON.parse(chunc.contents));
 
     contents[fileName] = contents[fileName] || {};
     deepAssign(contents[fileName], content);
