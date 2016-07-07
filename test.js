@@ -9,9 +9,22 @@ chai.use(require('chai-things'));
 
 describe('jsonBundler', function() {
   var fixtures = [
-    { contents: { some: 'textteil', another: 'textteil2' }, path: '/src/component-1/locales/de-de.json' },
-    { contents: { some: 'piece of text' }, path: '/src/component-1/locales/en-us.json' },
-    { contents: { test: 'test-textteil' }, path: '/src/component-2/locales/de-de.json' }
+    {
+      contents: { some: 'textteil', another: 'textteil2' },
+      path: '/src/component-1/locales/de-de.json'
+    },
+    {
+      contents: { some: 'piece of text' },
+      path: '/src/component-1/locales/en-us.json'
+    },
+    {
+      contents: { hello: 'world' },
+      path: '/src/deeply/nested/component/locales/en-us.json'
+    },
+    {
+      contents: { test: 'test-textteil' },
+      path: '/src/component-2/locales/de-de.json'
+    }
   ].map(function(file) {
     file.base = '/src/';
     file.contents = new Buffer(JSON.stringify(file.contents));
@@ -69,6 +82,13 @@ describe('jsonBundler', function() {
         },
         'component-2': {
           locales: { test: 'test-textteil' }
+        },
+        'deeply': {
+          nested: {
+            component: {
+              locales: { hello: 'world' }
+            }
+          }
         }
       };
 
