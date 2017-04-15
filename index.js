@@ -18,6 +18,7 @@ module.exports = function jsonBundler(opts) {
     var localePath = path.relative(chunc.base, path.dirname(chunc.path)).replace(new RegExp(omit, 'g'), '');
 
     // remove first and last slash
+    localePath = localePath.replace( /\\/g, '/' ); //change antislashes to slashes for Windows paths
     localePath = localePath.replace(/^\/|\/$/g, '');
     var fileName = path.basename(chunc.path);
     var content = {};
